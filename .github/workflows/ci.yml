@@ -9,6 +9,8 @@ jobs:
       # https://github.com/cypress-io/github-action
       - name: Install 📦
         uses: cypress-io/github-action@v6
+        with:
+          start: npm start
 
         # check if the tests pass TypeScript check step
         # and there are no exclusive tests accidentally left in the code
