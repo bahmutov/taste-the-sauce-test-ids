@@ -1,4 +1,4 @@
-# taste-the-sauce-test-ids
+# taste-the-sauce-test-ids [![ci](https://github.com/bahmutov/taste-the-sauce-test-ids/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/bahmutov/taste-the-sauce-test-ids/actions/workflows/ci.yml)
 
 > Run Cypress end-to-end specs based on data attributes from changed source files
 
