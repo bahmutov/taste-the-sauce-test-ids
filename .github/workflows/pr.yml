@@ -17,8 +17,6 @@ jobs:
 
       - name: Find Cypress specs for changed source files
         id: find-ids
-        env:
-          DEBUG: changed-test-ids
         run: |
           npx find-ids --sources 'src/**/*.jsx' \
             --specs 'cypress/e2e/**/*.cy.js' --command getByTestId,containsTestId \
