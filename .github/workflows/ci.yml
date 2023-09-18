@@ -23,3 +23,5 @@ jobs:
         run: npm run ids:sources
       - name: Show test ids used in the specs
         run: npm run ids:specs
+      - name: Warn about untested ids
+        run: npm run ids:warn
