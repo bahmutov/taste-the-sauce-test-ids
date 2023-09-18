@@ -1,0 +1,19 @@
+name: pr
+on: [pull_request]
+jobs:
+  checks:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+      # https://github.com/cypress-io/github-action
+      - name: Install 📦
+        uses: cypress-io/github-action@v6
+        with:
+          runTests: false
+
+      - name: Find Cypress specs for changes source files
+        run: |
+          npx find-ids --sources 'src/**/*.jsx' \
+            --specs 'cypress/e2e/**/*.cy.js' --command getByTestId,containsTestId \
+            --branch main

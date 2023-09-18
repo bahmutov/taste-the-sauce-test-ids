@@ -1,58 +1,58 @@
-import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
-import PropTypes from "prop-types";
-import { isProblemUser } from "../utils/Credentials";
-import { ROUTES } from "../utils/Constants";
-import SwagLabsFooter from "../components/Footer";
-import HeaderContainer from "../components/HeaderContainer";
-import InputError, { INPUT_TYPES } from "../components/InputError";
-import ErrorMessage from "../components/ErrorMessage";
-import SubmitButton from "../components/SubmitButton";
-import Button, { BUTTON_SIZES, BUTTON_TYPES } from "../components/Button";
-import "./CheckOutStepOne.css";
+import React, { useState } from 'react'
+import { withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { isProblemUser } from '../utils/Credentials'
+import { ROUTES } from '../utils/Constants'
+import SwagLabsFooter from '../components/Footer'
+import HeaderContainer from '../components/HeaderContainer'
+import InputError, { INPUT_TYPES } from '../components/InputError'
+import ErrorMessage from '../components/ErrorMessage'
+import SubmitButton from '../components/SubmitButton'
+import Button, { BUTTON_SIZES, BUTTON_TYPES } from '../components/Button'
+import './CheckOutStepOne.css'
 
 const CheckOutStepOne = ({ history }) => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [error, setError] = useState("");
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [postalCode, setPostalCode] = useState('')
+  const [error, setError] = useState('')
   const dismissError = () => {
-    setError("");
-  };
+    setError('')
+  }
   const handleFirstNameChange = (evt) => {
-    setFirstName(evt.target.value);
-  };
+    setFirstName(evt.target.value)
+  }
   const handleLastNameChange = (evt) => {
     if (isProblemUser()) {
       // Overwrite the firstname also
-      return setFirstName(evt.target.value);
+      return setFirstName(evt.target.value)
     }
 
-    setLastName(evt.target.value);
-  };
+    setLastName(evt.target.value)
+  }
   const handlePostalCodeChange = (evt) => {
-    setPostalCode(evt.target.value);
-  };
+    setPostalCode(evt.target.value)
+  }
   const handleSubmit = (evt) => {
-    evt.preventDefault();
+    evt.preventDefault()
 
     if (!firstName) {
-      return setError("First Name is required");
+      return setError('First Name is required')
     }
 
     if (!lastName) {
-      return setError("Last Name is required");
+      return setError('Last Name is required')
     }
 
     if (!postalCode) {
-      return setError("Postal Code is required");
+      return setError('Postal Code is required')
     }
 
     // If we're here, we have our required info. Redirect!
-    history.push(ROUTES.CHECKOUT_STEP_TWO);
+    history.push(ROUTES.CHECKOUT_STEP_TWO)
 
-    return "";
-  };
+    return ''
+  }
 
   return (
     <div id="page_wrapper" className="page_wrapper">
@@ -80,7 +80,7 @@ const CheckOutStepOne = ({ history }) => {
                   value={lastName}
                   onChange={handleLastNameChange}
                   testId="lastName"
-                  placeholder="Last Name"
+                  placeholder="Last name"
                   // Custom
                   id="last-name"
                   autoCorrect="off"
@@ -111,8 +111,8 @@ const CheckOutStepOne = ({ history }) => {
                   customClass="cart_cancel_link"
                   label="Cancel"
                   onClick={(evt) => {
-                    evt.preventDefault();
-                    history.push(ROUTES.CART);
+                    evt.preventDefault()
+                    history.push(ROUTES.CART)
                   }}
                   size={BUTTON_SIZES.MEDIUM}
                   testId="cancel"
@@ -130,8 +130,8 @@ const CheckOutStepOne = ({ history }) => {
       </div>
       <SwagLabsFooter />
     </div>
-  );
-};
+  )
+}
 CheckOutStepOne.propTypes = {
   /**
    * The history
@@ -139,6 +139,6 @@ CheckOutStepOne.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
-};
+}
 
-export default withRouter(CheckOutStepOne);
+export default withRouter(CheckOutStepOne)
