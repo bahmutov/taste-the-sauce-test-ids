@@ -51,7 +51,8 @@
     "badges": "npx -p dependency-version-badge update-badge cypress",
     "ids:sources": "find-ids --sources 'src/**/*.jsx'",
     "ids:specs": "find-ids --specs 'cypress/e2e/**/*.cy.js' --command getByTestId,containsTestId",
-    "ids:warn": "find-ids --sources 'src/**/*.jsx' --specs 'cypress/e2e/**/*.cy.js' --command getByTestId,containsTestId"
+    "ids:warn": "find-ids --sources 'src/**/*.jsx' --specs 'cypress/e2e/**/*.cy.js' --command getByTestId,containsTestId",
+    "changes": "find-ids --sources 'src/**/*.jsx' --specs 'cypress/e2e/**/*.cy.js' --command getByTestId,containsTestId --branch main --parent"
   },
   "browserslist": {
     "production": [

@@ -80,7 +80,7 @@ const CheckOutStepOne = ({ history }) => {
                   value={lastName}
                   onChange={handleLastNameChange}
                   testId="lastName"
-                  placeholder="Last name"
+                  placeholder="Last Name"
                   // Custom
                   id="last-name"
                   autoCorrect="off"
