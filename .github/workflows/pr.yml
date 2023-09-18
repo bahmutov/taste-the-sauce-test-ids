@@ -16,9 +16,17 @@ jobs:
           runTests: false
 
       - name: Find Cypress specs for changed source files
+        id: find-ids
         env:
           DEBUG: changed-test-ids
         run: |
           npx find-ids --sources 'src/**/*.jsx' \
             --specs 'cypress/e2e/**/*.cy.js' --command getByTestId,containsTestId \
-            --branch main --parent
+            --branch main --parent --set-gha-outputs
+
+      - name: Run any detected Cypress specs
+        if: ${{ steps.find-ids.outputs.specsToRunN }}
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm start
+          spec: ${{ steps.find-ids.outputs.specsToRun }}
