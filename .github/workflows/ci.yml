@@ -18,3 +18,8 @@ jobs:
         run: npm run lint
       - name: Catch it.only tests 🫴
         run: npm run only
+
+      - name: Show test ids used in the source code
+        run: npm run ids:sources
+      - name: Show test ids used in the specs
+        run: npm run ids:specs
