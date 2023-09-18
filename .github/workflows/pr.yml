@@ -7,7 +7,7 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
         with:
-          fetch-depth: 20
+          fetch-depth: 0
 
       # https://github.com/cypress-io/github-action
       - name: Install 📦
@@ -16,6 +16,8 @@ jobs:
           runTests: false
 
       - name: Find Cypress specs for changed source files
+        env:
+          DEBUG: changed-test-ids
         run: |
           npx find-ids --sources 'src/**/*.jsx' \
             --specs 'cypress/e2e/**/*.cy.js' --command getByTestId,containsTestId \
