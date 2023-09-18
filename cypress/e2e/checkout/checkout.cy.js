@@ -1,8 +1,7 @@
-import { LoginInfo } from '..'
 import { InventoryData } from '@fixtures/inventory-data'
 
 describe('Checkout', { viewportHeight: 1200 }, () => {
-  const user: LoginInfo = Cypress.env('users').standard
+  const user = Cypress.env('users').standard
   // we can even check if the user object is valid
   if (!user) {
     throw new Error('Missing the standard user')
