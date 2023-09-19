@@ -4,6 +4,8 @@
 
 ![Store test](./images/store-test.png)
 
+Uses [changed-test-ids](https://github.com/bahmutov/changed-test-ids) to find the Cypress specs that cover the changes based on the data test id attributes in the source changes in the pull request.
+
 ## See also
 
 - 🎓 See [Testing The Swag Store](https://cypress.tips/courses/swag-store) course
