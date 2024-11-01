@@ -27,7 +27,12 @@ const Button = ({
   const extraClass = customClass ? ` ${customClass}` : ''
   const buttonSize = ` btn_${size}`
   const BackImage = () => (
-    <img src={backPng} className="back-image" alt="Go back" />
+    <img
+      src={backPng}
+      className="back-image"
+      alt="Go back"
+      data-test="BackImage"
+    />
   )
 
   return (
